@@ -1,0 +1,43 @@
+﻿@page
+@model TopUpSE_ASP_1.Pages.Users.IndexModel
+﻿
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>System Users</h1>
+
+<a class="btn btn-primary btn-sm" href="/Users/Create">New User</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Address</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.userInforList)
+        {
+            <tr>
+                <td>@c.id</td>
+                <td>@c.first_name</td>
+                <td>@c.last_name</td>
+                <td>@c.email</td>
+                <td>@c.dob</td>
+                <td>@c.address</td>
+                <td>@c.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Users/Edit?id=">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Users/Delete?id=">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
